@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+
+    <bean id="kafkaLogProducer" class="com.ehsy.monitor.service.kafka.KafkaLogProducer" destroy-method="close">
+        <!--property name="hosts" value="localhost:9092"/-->
+        <property name="hosts" value="10.128.200.1:9092,10.128.200.2:9092,10.128.200.3:9092"/>
+    </bean>
+
+    <bean id="kafkaLogConsumer" class="com.ehsy.monitor.service.kafka.KafkaLogConsumer" destroy-method="close">
+        <!--property name="hosts" value="localhost:9092"/-->
+        <property name="hosts" value="10.128.200.1:9092,10.128.200.2:9092,10.128.200.3:9092"/>
+        <property name="topics">
+            <list>
+                <value>OC</value>
+                <value>PC</value>
+                <value>UC</value>
+                <value>AM</value>
+                <value>AC</value>
+            </list>
+        </property>
+        <property name="logDao" ref="logDao"/>
+    </bean>
+
+    <bean id="logDao" class="com.ehsy.monitor.dao.MongoDBLogDao">
+        <property name="dbAccessSupport" ref="dbAccessSupport"/>
+    </bean>
+
+    <bean id="dbAccessSupport" class="com.ehsy.monitor.dao.helper.MongoDBAccessSupport">
+        <property name="host" value="10.128.200.1:27017,10.128.200.2:27017,10.128.200.3:27017"/>
+        <!--property name="host" value="localhost:27017"/-->
+        <property name="replSet" value="monLog"/>
+        <property name="database" value="opLog"/>
+    </bean>
+</beans>

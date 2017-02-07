@@ -1,0 +1,182 @@
+2016-07-28 10:02:58 [ main:0 ] - [ DEBUG ] 设置application context
+2016-07-28 10:02:58 [ main:123 ] - [ DEBUG ] dynamic flag = 1
+2016-07-28 10:02:58 [ main:123 ] - [ INFO ] 开启动态注册
+2016-07-28 10:02:58 [ main:124 ] - [ DEBUG ] 获取本地服务查询服务
+2016-07-28 10:02:58 [ main:124 ] - [ DEBUG ] 获取组件[CF]本地提供的所有服务定义
+2016-07-28 10:02:58 [ main:149 ] - [ DEBUG ] 注册[服务[CFS000001]地址[192.168.4.30]端口[8081]组件[CF]路径[/{component}/services]]
+2016-07-28 10:03:20 [ main:21641 ] - [ ERROR ] {}
+com.orbitz.consul.ConsulException: Error connecting to Consul
+	at com.orbitz.consul.AgentClient.ping(AgentClient.java:65)
+	at com.orbitz.consul.Consul$Builder.build(Consul.java:386)
+	at com.ehsy.svcreg.consul.ConsulClient.<init>(ConsulClient.java:58)
+	at com.ehsy.svcreg.consul.ConsulClient$Builder.build(ConsulClient.java:274)
+	at com.ehsy.svcreg.client.DefaultClientFactory.getClient(DefaultClientFactory.java:59)
+	at com.ehsy.svcreg.registry.SvcRegistry.register(SvcRegistry.java:62)
+	at com.ehsy.svcreg.registry.SvcRegistry.register(SvcRegistry.java:54)
+	at com.ehsy.svcreg.context.ContextInitializer.afterPropertiesSet(ContextInitializer.java:40)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:446)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:328)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:835)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:530)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:808)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:342)
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1368)
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.startWebapp(JettyWebAppContext.java:320)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1335)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:772)
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:259)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:511)
+	at org.eclipse.jetty.maven.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:403)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:161)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.server.Server.start(Server.java:405)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:106)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:372)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.maven.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:457)
+	at org.eclipse.jetty.maven.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:328)
+	at org.eclipse.jetty.maven.plugin.JettyRunMojo.execute(JettyRunMojo.java:170)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:862)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:286)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:197)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+Caused by: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:8500
+	at com.orbitz.okhttp3.internal.io.RealConnection.connectSocket(RealConnection.java:142)
+	at com.orbitz.okhttp3.internal.io.RealConnection.connect(RealConnection.java:111)
+	at com.orbitz.okhttp3.internal.http.StreamAllocation.findConnection(StreamAllocation.java:188)
+	at com.orbitz.okhttp3.internal.http.StreamAllocation.findHealthyConnection(StreamAllocation.java:127)
+	at com.orbitz.okhttp3.internal.http.StreamAllocation.newStream(StreamAllocation.java:97)
+	at com.orbitz.okhttp3.internal.http.HttpEngine.connect(HttpEngine.java:289)
+	at com.orbitz.okhttp3.internal.http.HttpEngine.sendRequest(HttpEngine.java:241)
+	at com.orbitz.okhttp3.RealCall.getResponse(RealCall.java:240)
+	at com.orbitz.okhttp3.RealCall$ApplicationInterceptorChain.proceed(RealCall.java:198)
+	at com.orbitz.okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:160)
+	at com.orbitz.okhttp3.RealCall.execute(RealCall.java:57)
+	at com.orbitz.retrofit.OkHttpCall.execute(OkHttpCall.java:174)
+	at com.orbitz.consul.AgentClient.ping(AgentClient.java:58)
+	... 79 more
+2016-07-28 10:03:20 [ main:21671 ] - [ INFO ] try register service again...
+2016-07-28 10:03:50 [ pool-1-thread-1:51676 ] - [ DEBUG ] run register service again.......
+2016-07-28 10:03:50 [ pool-1-thread-1:51677 ] - [ DEBUG ] 获取本地服务查询服务
+2016-07-28 10:03:50 [ pool-1-thread-1:51677 ] - [ DEBUG ] 获取组件[CF]本地提供的所有服务定义
+2016-07-28 10:03:50 [ pool-1-thread-1:51678 ] - [ DEBUG ] 注册[服务[CFS000001]地址[192.168.4.30]端口[8081]组件[CF]路径[/{component}/services]]
+2016-07-28 10:04:02 [ main:0 ] - [ DEBUG ] 设置application context
+2016-07-28 10:04:02 [ main:381 ] - [ DEBUG ] dynamic flag = 0
+2016-07-28 10:04:02 [ main:381 ] - [ INFO ] 关闭动态注册
+2016-07-28 10:04:11 [ qtp584157293-19:9072 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:04:11 [ qtp584157293-19:9078 ] - [ DEBUG ] ==>  Preparing: select ID, ABB, NAME, CREATE_TIME, UPDATE_TIME from svc_provider 
+2016-07-28 10:04:11 [ qtp584157293-19:9110 ] - [ DEBUG ] ==> Parameters: 
+2016-07-28 10:04:11 [ qtp584157293-19:9136 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:04:12 [ qtp584157293-19:10308 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:04:13 [ qtp584157293-19:10448 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:04:13 [ qtp584157293-19:10449 ] - [ DEBUG ] ==> Parameters: http(String), 0(Integer), 10(Integer)
+2016-07-28 10:04:13 [ qtp584157293-19:10465 ] - [ DEBUG ] <==      Total: 9
+2016-07-28 10:05:03 [ qtp584157293-29:61246 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:05:03 [ qtp584157293-29:61246 ] - [ DEBUG ] ==>  Preparing: select ID, ABB, NAME, CREATE_TIME, UPDATE_TIME from svc_provider 
+2016-07-28 10:05:03 [ qtp584157293-29:61246 ] - [ DEBUG ] ==> Parameters: 
+2016-07-28 10:05:03 [ qtp584157293-29:61256 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:05:03 [ qtp584157293-17:61360 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:05:04 [ qtp584157293-17:61399 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:05:04 [ qtp584157293-17:61399 ] - [ DEBUG ] ==> Parameters: http(String), 0(Integer), 10(Integer)
+2016-07-28 10:05:04 [ qtp584157293-17:61416 ] - [ DEBUG ] <==      Total: 9
+2016-07-28 10:06:36 [ qtp584157293-16:153541 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:36 [ qtp584157293-16:153579 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:36 [ qtp584157293-16:153580 ] - [ DEBUG ] ==> Parameters: PC(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:36 [ qtp584157293-16:153588 ] - [ DEBUG ] <==      Total: 0
+2016-07-28 10:06:38 [ qtp584157293-18:156301 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:38 [ qtp584157293-18:156341 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:38 [ qtp584157293-18:156342 ] - [ DEBUG ] ==> Parameters: OC(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:38 [ qtp584157293-18:156351 ] - [ DEBUG ] <==      Total: 0
+2016-07-28 10:06:40 [ qtp584157293-20:158341 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:40 [ qtp584157293-20:158379 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:40 [ qtp584157293-20:158379 ] - [ DEBUG ] ==> Parameters: UC(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:40 [ qtp584157293-20:158388 ] - [ DEBUG ] <==      Total: 0
+2016-07-28 10:06:44 [ qtp584157293-15:161478 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:44 [ qtp584157293-15:161516 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:44 [ qtp584157293-15:161517 ] - [ DEBUG ] ==> Parameters: GW(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:44 [ qtp584157293-15:161527 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:06:46 [ qtp584157293-29:164014 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:46 [ qtp584157293-29:164055 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:46 [ qtp584157293-29:164056 ] - [ DEBUG ] ==> Parameters: CF(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:46 [ qtp584157293-29:164067 ] - [ DEBUG ] <==      Total: 4
+2016-07-28 10:06:58 [ qtp584157293-17:175751 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:06:58 [ qtp584157293-17:175790 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:06:58 [ qtp584157293-17:175790 ] - [ DEBUG ] ==> Parameters: GW(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:06:58 [ qtp584157293-17:175801 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:07:47 [ qtp584157293-16:224724 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:07:47 [ qtp584157293-16:224724 ] - [ DEBUG ] ==>  Preparing: select ID, ABB, NAME, CREATE_TIME, UPDATE_TIME from svc_provider 
+2016-07-28 10:07:47 [ qtp584157293-16:224725 ] - [ DEBUG ] ==> Parameters: 
+2016-07-28 10:07:47 [ qtp584157293-16:224738 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:07:47 [ qtp584157293-16:224748 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:07:47 [ qtp584157293-16:224748 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( ID = ? ) 
+2016-07-28 10:07:47 [ qtp584157293-16:224749 ] - [ DEBUG ] ==> Parameters: 20160725160025336698(String)
+2016-07-28 10:07:47 [ qtp584157293-16:224759 ] - [ DEBUG ] <==      Total: 1
+2016-07-28 10:08:09 [ qtp584157293-17:246420 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:08:09 [ qtp584157293-17:246421 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME from svc_desc_info WHERE ( ALIAS = ? and ID not in ( ? ) ) 
+2016-07-28 10:08:09 [ qtp584157293-17:246423 ] - [ DEBUG ] ==> Parameters: agg1(String), 20160725160025336698(String)
+2016-07-28 10:08:09 [ qtp584157293-17:246432 ] - [ DEBUG ] <==      Total: 0
+2016-07-28 10:09:22 [ qtp584157293-20:319608 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:09:22 [ qtp584157293-20:319653 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:09:22 [ qtp584157293-20:319653 ] - [ DEBUG ] ==> Parameters: GW(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:09:22 [ qtp584157293-20:319663 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:09:27 [ qtp584157293-15:325143 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:09:28 [ qtp584157293-15:325521 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info WHERE ( COMPONENT = ? and PROTOCOL = ? ) order by update_time desc limit ?,? 
+2016-07-28 10:09:28 [ qtp584157293-15:325522 ] - [ DEBUG ] ==> Parameters: GW(String), http(String), 0(Integer), 10(Integer)
+2016-07-28 10:09:28 [ qtp584157293-15:325533 ] - [ DEBUG ] <==      Total: 5
+2016-07-28 10:14:02 [ qtp584157293-16:599469 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 10:14:02 [ qtp584157293-16:599506 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info order by update_time desc limit ?,? 
+2016-07-28 10:14:02 [ qtp584157293-16:599508 ] - [ DEBUG ] ==> Parameters: 0(Integer), 10(Integer)
+2016-07-28 10:14:02 [ qtp584157293-16:599518 ] - [ DEBUG ] <==      Total: 9
+2016-07-28 13:14:56 [ main:0 ] - [ DEBUG ] 设置application context
+2016-07-28 13:14:56 [ main:366 ] - [ DEBUG ] dynamic flag = 0
+2016-07-28 13:14:56 [ main:366 ] - [ INFO ] 关闭动态注册
+2016-07-28 13:57:55 [ qtp442465916-28:2578753 ] - [ DEBUG ] ooo Using Connection [jdbc:mysql://121.199.39.199:3306/ehsy_saas, UserName=ehsy_saas@124.74.66.142, MySQL-AB JDBC Driver]
+2016-07-28 13:57:55 [ qtp442465916-28:2578880 ] - [ DEBUG ] ==>  Preparing: select ID, CODE, ALIAS, SVCNAME, VERSION, COMPONENT, STATUS, CATEGORY, PROTOCOL, PATH, CREATE_TIME, UPDATE_TIME , DESCRIPTION from svc_desc_info order by update_time desc limit ?,? 
+2016-07-28 13:57:55 [ qtp442465916-28:2578895 ] - [ DEBUG ] ==> Parameters: 0(Integer), 10(Integer)
+2016-07-28 13:57:55 [ qtp442465916-28:2578935 ] - [ DEBUG ] <==      Total: 9
